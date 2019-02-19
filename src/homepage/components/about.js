@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link, StaticQuery, graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
+import styled from 'styled-components';
 
 
 export default () => (
@@ -15,10 +16,38 @@ export default () => (
       }  
     `}
     render={(data) => (
-      <div className="bg-washed-red flex flex-column justify-center items-center pa2 pv5">
-        <h1 className="fw1 display db dark-gray f2 tc">{data.site.siteMetadata.homepageHeader}</h1>
-        <p className="f4 serif mw7 tc lh-copy">{data.site.siteMetadata.homepageAbout}</p>
-        <Link to="/about" className="mt3 db no-underline ph5 pv3 sans-serif near-white bg-dark-gray ttu tracked b hover-bg-mid-gray">About Tyra</Link>
-      </div>
+      <Section>
+        <Title>{data.site.siteMetadata.homepageHeader}</Title>
+        <About>{data.site.siteMetadata.homepageAbout}</About>
+        <Contact>Call us today.<br />(978) 975-3882</Contact>
+      </Section>
     )} />
 )
+
+const Section = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #f4f4f4;
+    padding: 4rem 0.5rem;
+`;
+
+const Title = styled.h2`
+    font-size: 2.25rem;
+`;
+
+const About = styled.p`
+    width: 75%;
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Lora, serif !important;
+    text-align: center;
+`;
+
+const Contact = styled.p`
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: Lora, serif !important;
+    text-align: center;
+`;

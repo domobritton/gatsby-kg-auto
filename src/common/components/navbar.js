@@ -54,10 +54,23 @@ export default class Navbar extends React.Component {
     super();
     this.state = {
       // Null rather than false to check for initialization
+      width: window.innerWidth,
       menuToggle: null,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
   };
+
+  componentDidMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+  this.setState({ width: window.innerWidth });
+};
 
   toggleMenu(event) {
     this.setState({
@@ -66,6 +79,8 @@ export default class Navbar extends React.Component {
   };
 
   render () {
+    const { width } = this.state;
+    const isMobile = width <= 960;
     return (
       <StaticQuery
         query={graphql`
@@ -87,22 +102,26 @@ export default class Navbar extends React.Component {
           <div
             className="bg-white flex w-100 vh-7 pv3 flex justify-between items-center top-0 z-999 bb b--light-gray"
             style={{position: "sticky"}}>
-            <div className="w-100 mw8 flex justify-between justify-around-l items-center ph4 pa2-ns">
+            <div className="w-100 mw8 flex justify-between items-center ph4 pa2-ns">
+            {isMobile && 
               <button
                 className="ttu tracked dark-gray f4 no-underline bn bg-transparent pointer"
                 onClick={this.toggleMenu}>
                 <FiMenu />
               </button>
+            }
               <Link to="/" className="display ttu tracked dark-gray f4 no-underline">{data.site.siteMetadata.siteTitle}</Link>
-              <Link to="/" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">HOME</Link>
-              {data.site.siteMetadata.navbarLinks.map(navLink => (
+              {/* {data.site.siteMetadata.navbarLinks.map(navLink => (
                 <MultiLink to={navLink.to} className="sans-serif ttu mid-gray f5 no-underline dn dib-l">{navLink.name}</MultiLink>
-              ))}
+              ))} */}
             </div>
             <div className="dn w-100 mw5 flex-l justify-around items-center">
-              <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dn dib-l">SIGN UP</a>
+              {/* <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dn dib-l">SIGN UP</a> */}
+              <Link to="/" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">HOME</Link>
               <span className="sans-serif mid-gray dn dib-l">|</span>
-              <Link to="/about" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">ABOUT</Link>
+              <Link to="/about" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">VISIT US</Link>
+              <span className="sans-serif mid-gray dn dib-l">|</span>
+              <Link to="/about" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">REVIEWS</Link>
             </div>
           </div>
           <SliderMenu

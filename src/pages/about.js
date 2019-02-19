@@ -41,7 +41,7 @@ export const dataQuery = graphql`
     }
     banner: file(relativePath: {eq: "img/about__banner.jpg"}) {
       childImageSharp {
-        fluid(maxHeight: 720, maxWidth: 1920) {
+        fluid(maxHeight: 620, maxWidth: 1920) {
           ...GatsbyImageSharpFluid
         }
       }
