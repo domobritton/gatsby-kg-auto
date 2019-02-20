@@ -17,9 +17,15 @@ export default () => (
     `}
     render={(data) => (
       <Section>
+        <Wrapper>
+          <img src='/oil_thumb.jpg' alt='oil changes' />
+          <img src='/tire_thumb.jpg' alt='tire repair' />
+          <img src='/wrench_thumb.jpg' alt='car maintenance' />
+          <img src='/brake_thumb.jpg' alt='brakes' />
+        </Wrapper>
         <Title>{data.site.siteMetadata.homepageHeader}</Title>
         <About>{data.site.siteMetadata.homepageAbout}</About>
-        <Contact>Call us today.<br />(978) 975-3882</Contact>
+        <Contact>Call us today.<br /><a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
       </Section>
     )} />
 )
@@ -33,21 +39,39 @@ const Section = styled.div`
     padding: 4rem 0.5rem;
 `;
 
+const Wrapper = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+    align-items: center;
+    column-gap: 1.5rem;
+    padding: 0 5%;
+`;
+
 const Title = styled.h2`
     font-size: 2.25rem;
+    margin-top: 4rem;
+    color: #333;
+    font-weight: 500;
 `;
 
 const About = styled.p`
     width: 75%;
     font-size: 1rem;
     line-height: 1.5;
-    font-family: Lora, serif !important;
     text-align: center;
+    margin-top: 0;
 `;
 
 const Contact = styled.p`
-    font-size: 1rem;
+    font-size: 1.75rem;
     line-height: 1.5;
-    font-family: Lora, serif !important;
+    color: #333; 
+    font-weight: 700;   
     text-align: center;
+
+    a {
+      text-decoration: none;
+      color: #333;
+    }
 `;

@@ -65,6 +65,8 @@ const Image = styled(Img)`
 const Title = styled.h2`
     text-align: center;
     font-size: 2.25rem;
+    font-weight: 500;
+    color: #333;
 `;
 
 const Services = styled.ul`
@@ -91,5 +93,4 @@ const Service = styled.li`
     font-size: 1rem;
     line-height: 1.5;
     margin: 1.5rem 0;
-    font-family: Lato, serif !important
 `;

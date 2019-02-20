@@ -5,7 +5,7 @@ import Hero from '../homepage/components/hero';
 import Card from '../homepage/components/card';
 import Services from '../homepage/components/services';
 import About from '../homepage/components/about';
-import Bio from '../homepage/components/bio';
+import Commitment from '../homepage/components/commitment';
 import Seo from '../common/seo';
 
 export default ({ data }) => {
@@ -21,7 +21,7 @@ export default ({ data }) => {
         description={post.frontmatter.description} />
       <Services />
       <About />
-      <Bio />
+      <Commitment />
     </Layout>
   )
 }

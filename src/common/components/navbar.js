@@ -41,7 +41,7 @@ const SliderMenu = (props) => {
         </MultiLink>
       ))}
       <Link
-        to="/about"
+        to="/visit"
         className={"sans-serif ttu mid-gray f5 no-underline menu__item pv3" + extraClasses}
       >About</Link>
     </div>
@@ -119,9 +119,9 @@ export default class Navbar extends React.Component {
               {/* <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dn dib-l">SIGN UP</a> */}
               <Link to="/" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">HOME</Link>
               <span className="sans-serif mid-gray dn dib-l">|</span>
-              <Link to="/about" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">VISIT US</Link>
+              <Link to="/visit" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">VISIT US</Link>
               <span className="sans-serif mid-gray dn dib-l">|</span>
-              <Link to="/about" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">REVIEWS</Link>
+              <Link to="/reviews" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">REVIEWS</Link>
             </div>
           </div>
           <SliderMenu

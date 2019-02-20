@@ -1,5 +1,5 @@
 .sans-serif {
-  font-family: "Karla", sans-serif !important;
+  font-family: "Roboto", sans-serif !important;
 }
 
 .serif {
@@ -117,4 +117,16 @@
   font-size: 1rem;
   background-color: #eee;
   white-space: pre-wrap;
+}
+
+html, body {
+  font-family: "Roboto", sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
 }
