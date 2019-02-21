@@ -1,15 +1,14 @@
 import React from 'react';
 import Layout from '../common/layouts';
 import Img from 'gatsby-image';
-import { graphql, Link } from 'gatsby';
+import { graphql } from 'gatsby';
 import Seo from '../common/seo';
 import { MyMapComponent } from '../visit_us/components/map';
 import { Contact } from '../visit_us/components/contact_us';
-import styled from 'styled-components';
-
 
 export default ({ props, data }) => (
   <Layout>
+    {console.log(process.env.API_KEY)}
     <Seo
       title={`Visit ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title} />

@@ -54,7 +54,8 @@ export default class Navbar extends React.Component {
     super();
     this.state = {
       // Null rather than false to check for initialization
-      width: window.innerWidth,
+      width: typeof window !== 'undefined' ?
+      window.innerWidth : '',
       menuToggle: null,
     };
     this.toggleMenu = this.toggleMenu.bind(this);
