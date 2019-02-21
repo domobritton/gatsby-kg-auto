@@ -1,43 +1,51 @@
+import oil from '../img/oil.svg';
+import brakes from '../img/brakes.svg';
+import tires from '../img/tires.svg';
+import wiring from '../img/wiring.svg';
+import muffler from '../img/muffler.svg';
+import warning from '../img/warning.svg';
+import maintenance from '../img/maintenance.svg';
+import timing from '../img/timing.svg';
 export const serviceList = [
     {
         id: 1,
         service: "Oil Change",
-        img: "/oil.svg"
+        img: oil
     },
     {
         id: 2,
         service: "Brake Service",
-        img: "/brakes.svg"
+        img: brakes
     },
     {
         id: 3,
         service: "Tire Repair + Wheel Alignment",
-        img: "/tires.svg"
+        img: tires
     },
     {
         id: 4,
         service: "Wiring & Electrical",
-        img: "/wiring.svg"
+        img: wiring
     },
     {
         id: 5,
         service: "Muffler / Exhaust Repair",
-        img: "/muffler.svg"
+        img: muffler
     },
     {
         id: 6,
         service: "Check Engine Light Diagnosis",
-        img: "/warning.svg"
+        img: warning
     },
     {
         id: 7,
         service: "Preventative Maintenance",
-        img: "/maintenance.svg"
+        img: maintenance
     },
     {
         id: 8,
         service: "Timing Belts",
-        img: "/timing.svg"
+        img: timing
     }, 
     {
         id: 9,

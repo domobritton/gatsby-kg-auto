@@ -1,5 +1,8 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { brakes, oil, tire, wrench } from '../../../content/copy/homepage__about';
+import '../../common/styles/custom.tachyons.css'
+import 'tachyons';
 import styled from 'styled-components';
 
 
@@ -18,10 +21,10 @@ export default () => (
     render={(data) => (
       <Section>
         <Wrapper>
-          <img src='/oil_thumb.jpg' alt='oil changes' />
-          <img src='/tire_thumb.jpg' alt='tire repair' />
-          <img src='/wrench_thumb.jpg' alt='car maintenance' />
-          <img src='/brake_thumb.jpg' alt='brakes' />
+          <img src={oil} alt='oil changes' />
+          <img src={tire} alt='tire repair' />
+          <img src={wrench} alt='car maintenance' />
+          <img src={brakes} alt='brakes' />
         </Wrapper>
         <Title>{data.site.siteMetadata.homepageHeader}</Title>
         <About>{data.site.siteMetadata.homepageAbout}</About>

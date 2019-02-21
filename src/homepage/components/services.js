@@ -22,7 +22,7 @@ export default () => {
                 copy: markdownRemark(frontmatter: {name: {eq: "homepage__services"}}) {
                     html
                     frontmatter {
-                    title
+                        title
                     }
                 }
                 }  
