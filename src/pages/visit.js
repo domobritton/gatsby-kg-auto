@@ -5,19 +5,21 @@ import { graphql } from 'gatsby';
 import Seo from '../common/seo';
 import { MyMapComponent } from '../visit_us/components/map';
 import { Contact } from '../visit_us/components/contact_us';
+import styled from 'styled-components';
 
-export default ({ props, data }) => (
+export default ({ data }) => (
   <Layout>
-    {console.log(process.env.API_KEY)}
     <Seo
       title={`Visit ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title} />
-    <div className="relative">
-      <Img fluid={data.banner.childImageSharp.fluid} />
-      {/* <h1
-        className="fw1 tc f2 display absolute dn dib-ns"
-        style={{bottom: "50%", left: "50%", transform: "translate(-50%, -50%)"}}>About {data.site.siteMetadata.title}</h1> */}
-    </div>
+    <HeroWrapper>
+    <>
+      <Overlay />
+      <Img
+        className="w-100 vh-50 mw9 center"
+        fluid={data.banner.childImageSharp.fluid} />
+    </>
+    </HeroWrapper>
     <Contact data={data} />
     <MyMapComponent isMarkerShown />
   </Layout>
@@ -45,3 +47,17 @@ export const dataQuery = graphql`
     }
   }
 `
+
+const HeroWrapper = styled.div`
+  position: relative;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: rgba(49, 49, 49, 0.3);
+`;

@@ -1,27 +1,22 @@
-import React from "react"
+import React from "react";
 import Img from 'gatsby-image';
-import { Link } from 'gatsby';
-import '../../common/styles/custom.tachyons.css'
-import 'tachyons';
 import styled from 'styled-components';
 
 export default ({image, title, description}) => (
   <>
     <HeroWrapper>
-      <div>
+      <>
         <Overlay />
-          <Img
-            className="w-100 vh-50 mw9 center"
-            fluid={image}
-            alt={description} />
-      </div>
+        <Img
+          className="w-100 vh-50 mw9 center"
+          fluid={image}
+          alt={description} />
+      </>
         <Title>KG AUTO REPAIR</Title>
     </HeroWrapper>
     <Section>
-      {/* <span className="fw1 display dark-gray db tc w-100 mw7 f3 f2-ns">{title}</span> */}
       <Subtitle>{title}</Subtitle>
       <Description>{description}</Description>
-      {/* <Link className="db pv3 ph5 tracked ttu b bg-washed-red dark-gray sans-serif no-underline hover-gray" to={props.to}>Read More</Link> */}
     </Section>
     <LogoSection>
       <LogoWrapper>
@@ -53,7 +48,7 @@ const Overlay = styled.div`
 const Title = styled.h1`
   position: absolute;
   top: 30%;
-  left: 50%;
+  left: 53%;
   width: 700px;
   transform: translate(-50%, -50%);
   color: white;

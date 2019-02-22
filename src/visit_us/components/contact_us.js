@@ -89,9 +89,8 @@ const Button = styled.button`
     padding: 1rem 2rem;
     margin: 0;
     text-decoration: none;
-    background: #0069ed;
+    background: #081C38;
     color: #ffffff;
-    font-family: sans-serif;
     font-size: 1rem;
     cursor: pointer;
     text-align: center;

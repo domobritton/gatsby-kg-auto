@@ -30,11 +30,12 @@ const SliderMenu = (props) => {
       }>
       <Link
         to="/"
-        className={"display ttu tracked dark-gray f3 no-underline menu__item pv5" + extraClasses}
+        className={"ttu tracked dark-gray f3 no-underline menu__item pv5" + extraClasses}
       >{props.siteTitle}
       </Link>
-      {props.extraLinks.map(navLink => (
+      {props.extraLinks.map((navLink, idx) => (
         <MultiLink
+          key={idx}
           to={navLink.to}
           className={"sans-serif ttu mid-gray f5 no-underline menu__item pv3" + extraClasses}
         >{navLink.name}
@@ -111,10 +112,7 @@ export default class Navbar extends React.Component {
                 <FiMenu />
               </button>
             }
-              <Link to="/" className="display ttu tracked dark-gray f4 no-underline">{data.site.siteMetadata.siteTitle}</Link>
-              {/* {data.site.siteMetadata.navbarLinks.map(navLink => (
-                <MultiLink to={navLink.to} className="sans-serif ttu mid-gray f5 no-underline dn dib-l">{navLink.name}</MultiLink>
-              ))} */}
+              <Link to="/" className="ttu tracked dark-gray f4 no-underline">{data.site.siteMetadata.siteTitle}</Link>
             </div>
             <div className="dn w-100 mw5 flex-l justify-around items-center">
               {/* <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dn dib-l">SIGN UP</a> */}
@@ -123,6 +121,8 @@ export default class Navbar extends React.Component {
               <Link to="/visit" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">VISIT US</Link>
               <span className="sans-serif mid-gray dn dib-l">|</span>
               <Link to="/reviews" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">REVIEWS</Link>
+              {/* <span className="sans-serif mid-gray dn dib-l">|</span> */}
+              {/* <span className="sans-serif mid-gray dn dib-l">Call us today!<a href='tel:+1-978-1111'>(978)111-1111</a></span> */}
             </div>
           </div>
           <SliderMenu

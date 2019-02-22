@@ -1,10 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
-import styled from 'styled-components';
 import Img from 'gatsby-image';
-
 import { serviceList } from '../../../content/copy/homepage__servicesList';
-import 'tachyons'
+import styled from 'styled-components';
+
 
 export default () => {
     return (
@@ -30,17 +29,17 @@ export default () => {
             render={(data) => (
                 <>
                 <Image fluid={data.image.childImageSharp.fluid} alt="Services" />
-                <div class="w-100 pa2 mw6 mv4">
+                <Box>
                     <Title>{data.copy.frontmatter.title}</Title>
                     <Services>
                         {serviceList.map(service => (
-                            <Wrapper>
+                            <Wrapper key={service.id}>
                                 <Icon src={service.img} />
-                                <Service key={service.id}>{service.service}</Service>
+                                <Service>{service.service}</Service>
                             </Wrapper>
                         ))}
                     </Services>  
-                </div>
+                </Box>
                 </>
             )} />
         </Section>
@@ -60,6 +59,12 @@ const Image = styled(Img)`
     -webkit-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     -moz-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
+`;
+
+const Box = styled.div`
+    margin: 2rem 0.5rem;
+    width: 100%;
+    max-width: 32rem;
 `;
 
 const Title = styled.h2`

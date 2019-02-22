@@ -1,8 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import { brakes, oil, tire, wrench } from '../../../content/copy/homepage__about';
-import '../../common/styles/custom.tachyons.css'
-import 'tachyons';
 import styled from 'styled-components';
 
 

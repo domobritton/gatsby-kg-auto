@@ -6,6 +6,7 @@ import muffler from '../img/muffler.svg';
 import warning from '../img/warning.svg';
 import maintenance from '../img/maintenance.svg';
 import timing from '../img/timing.svg';
+
 export const serviceList = [
     {
         id: 1,
