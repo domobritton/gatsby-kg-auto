@@ -16,23 +16,6 @@ module.exports = {
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
     {
-      resolve: 'gatsby-plugin-feed',
-      options: {
-        query: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              site_url: siteUrl
-            }
-          }
-        }
-      `,
-      },
-    },
-    {
       resolve: 'gatsby-source-filesystem',
       options: {
         path: `${__dirname}/content`,
