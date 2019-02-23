@@ -1,13 +1,8 @@
 module.exports = {
   siteMetadata: {
-    navbarLinks: [
-      {to: "/makeup", name: "Makeup"},
-      {to: "/lifestyle", name: "Lifestyle"},
-      {to: "/blog", name: "blog"},
-    ],
     title: "KG AUTO REPAIR",
     description: "KG Auto Repair is an independent automotive repair & service. Located in Lawrence, Massachusetts",
-    siteUrl: "https://tyra-starter.netlify.com",
+    siteUrl: "https://5c6e6770b6e85400082f7fa0--eager-mccarthy-a5538e.netlify.com/",
     homepageHeader: "About Us",
     homepageAbout: "KG Auto Repair is an independent automotive repair & service facility serving Lawrence and surrounding cities for over 20 years. We are a complete auto repair shop specializing in diagnostics, repairs and maintenance. Our highly experienced mechanics ensure the highest standard in quality repairs. We've built our reputation on honesty and integrity and our goal is to get your vehicle back on the road quickly and efficiently at the best value. Give us a call today and we'll be happy to answer any questions you may have about us, your vehicle, or services we provide.",
     mailChimpUrl: "https://mailchimp.com",
@@ -35,44 +30,6 @@ module.exports = {
           }
         }
       `,
-        feeds: [
-          {
-            serialize: ({ query: { site, allMarkdownRemark } }) => {
-              return allMarkdownRemark.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  guid: site.siteMetadata.siteUrl + edge.node.frontmatter.slug,
-                  custom_elements: [{ "content:encoded": edge.node.html }],
-                })
-              })
-            },
-            query: `
-            {
-              allMarkdownRemark(
-                limit: 1000,
-                sort: { order: DESC, fields: [frontmatter___date] },
-                filter: {frontmatter: {type: {eq: "post"}}}
-              ) {
-                edges {
-                  node {
-                    excerpt
-                    html
-                    frontmatter {
-                      slug
-                      title
-                      date
-                    }
-                  }
-                }
-              }
-            }
-          `,
-            output: "/rss.xml",
-            title: "Gatsby RSS Feed",
-          },
-        ],
       },
     },
     {
