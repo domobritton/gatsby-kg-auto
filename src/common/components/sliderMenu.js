@@ -3,7 +3,10 @@ import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 export const SliderMenu = ({ active }) => {
-  let location = window.location.pathname || '';
+  let location;
+  if (typeof window !== 'undefined') {
+    location = window.location.pathname;
+  }
   let home = '';
   let visit = '';
   let reviews = '';
