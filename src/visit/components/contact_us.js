@@ -88,7 +88,7 @@ const Form = styled.form`
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 400px;
+    width: 100%;
     height: 400px;
 
     @media (max-width: 900px) {
@@ -118,7 +118,7 @@ const TextArea = styled.textarea`
     margin: 1rem 0;
     height: 80px;
     width: 100%;
-    min-width: 350px;
+    min-width: 320px;
     resize: none;
     padding: 0.5rem;
     border: 1px solid lightgray;

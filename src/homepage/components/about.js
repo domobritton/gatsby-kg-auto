@@ -27,7 +27,7 @@ export default () => (
         <Text>
           <Title>{data.site.siteMetadata.homepageHeader}</Title>
           <About>{data.site.siteMetadata.homepageAbout}</About>
-          <Contact>Call us today. <a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
+          <Contact>Call us today. <br /><a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
         </Text>
       </Section>
     )} />
@@ -55,13 +55,15 @@ const Wrapper = styled.div`
     padding: 0 5%;
 
     @media (max-width: 600px) {
+      grid-template-columns: repeat(2, 1fr);
       column-gap: 0.5rem;
+      row-gap: 0.5rem;
       padding: 0;
     }
 `;
 
 const Text = styled.div`
-    margin: 2rem 0.5rem;
+    padding: 2rem 0.5rem;
     width: 100%;
     max-width: 48rem;
 `;

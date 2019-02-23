@@ -57,7 +57,7 @@ const Image = styled(Img)`
 `;
 
 const Wrapper = styled.div`
-    margin: 2rem 0.5rem;
+    padding: 2rem 0.5rem;
     width: 100%;
     max-width: 32rem;
 

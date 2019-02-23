@@ -8,7 +8,7 @@ export default ({image, title, description}) => (
       <>
         <Overlay />
         <Img
-          className="w-100 vh-50 mw9 center"
+          className="w-100 vh-50 center"
           fluid={image}
           alt={description} />
       </>
@@ -61,7 +61,7 @@ const Title = styled.h1`
   }
 
   @media (max-width: 600px) {
-    font-size: 50px;
+    font-size: 40px;
   }
 `;
 
