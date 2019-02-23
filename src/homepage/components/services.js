@@ -56,7 +56,6 @@ const Section = styled.div`
 `;
 
 const Image = styled(Img)`
-    width: 40%;
     -webkit-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     -moz-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
@@ -65,10 +64,6 @@ const Image = styled(Img)`
         -webkit-box-shadow: none;
         -mox-box-shadow: none;
         box-shadow: none;
-    }
-
-    @media (max-width: 600px) {
-    
     }
 `;
 
