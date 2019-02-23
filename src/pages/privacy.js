@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Layout from '../common/layouts/';
-import Seo from '../common/layouts';
+import Seo from '../common/seo';
 import 'tachyons';
 
 
@@ -13,90 +13,40 @@ export default () => (
     <Helmet>
       <meta name="robots" content="noindex, nofollow" />
     </Helmet>
-    <div className="bg-washed-red pv5 flex flex-column items-center">
+    <div className="pv5 flex flex-column items-center">
       <h1 className="db f1 display fw1">Privacy Policy</h1>
-      <p className="db sans-serif f5 tracked ttu tc">Effective date: December 19, 2018</p>
+      <p className="db sans-serif f5 tracked ttu tc">Effective date: February 22, 2019</p>
     </div>
     <div className="lh-copy f4 serif mw8 center">
-      <p>Gatsby Starter Tyra ("us", "we", or "our") operates the gatsby-starter-tyra.netlify.com website (the "Service").</p>
-      <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data. Our Privacy Policy  for Gatsby Starter Tyra is based on the <a className="light-red" href="https://www.freeprivacypolicy.com/blog/sample-privacy-policy-template/">Free Privacy Policy Template Website</a>.</p>
-      <p>We use your data to provide and improve the Service. By using the Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, accessible from gatsby-starter-tyra.netlify.com</p>
-      <h2 className="sans-serif">Information Collection And Use</h2>
-      <p>We collect several different types of information for various purposes to provide and improve our Service to you.</p>
-      <h3 className="sans-serif">Types of Data Collected</h3>
-      <h4 className="sans-serif">Personal Data</h4>
-      <p>While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). Personally identifiable information may include, but is not limited to:</p>
-      <ul>
-        <li>Email address</li><li>Cookies and Usage Data</li>
-      </ul>
-      <h4 className="sans-serif">Usage Data</h4>
-      <p>We may also collect information how the Service is accessed and used ("Usage Data"). This Usage Data may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages of our Service that you visit, the time and date of your visit, the time spent on those pages, unique device identifiers and other diagnostic data.</p>
-      <h4 className="sans-serif">Tracking & Cookies Data</h4>
-      <p>We use cookies and similar tracking technologies to track the activity on our Service and hold certain information.</p>
-      <p>Cookies are files with small amount of data which may include an anonymous unique identifier. Cookies are sent to your browser from a website and stored on your device. Tracking technologies also used are beacons, tags, and scripts to collect and track information and to improve and analyze our Service.</p>
-      <p>You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Service.</p>
-      <p>Examples of Cookies we use:</p>
-      <ul>
-        <li><strong>Session Cookies.</strong> We use Session Cookies to operate our Service.</li>
-        <li><strong>Preference Cookies.</strong> We use Preference Cookies to remember your preferences and various settings.</li>
-        <li><strong>Security Cookies.</strong> We use Security Cookies for security purposes.</li>
-      </ul>
-      <h2 className="sans-serif">Use of Data</h2>
-      <p>Gatsby Starter Tyra uses the collected data for various purposes:</p>    
-      <ul>
-        <li>To provide and maintain the Service</li>
-        <li>To notify you about changes to our Service</li>
-        <li>To allow you to participate in interactive features of our Service when you choose to do so</li>
-        <li>To provide customer care and support</li>
-        <li>To provide analysis or valuable information so that we can improve the Service</li>
-        <li>To monitor the usage of the Service</li>
-        <li>To detect, prevent and address technical issues</li>
-      </ul>
-      <h2 className="sans-serif">Transfer Of Data</h2>
-      <p>Your information, including Personal Data, may be transferred to — and maintained on — computers located outside of your state, province, country or other governmental jurisdiction where the data protection laws may differ than those from your jurisdiction.</p>
-      <p>If you are located outside United States and choose to provide information to us, please note that we transfer the data, including Personal Data, to United States and process it there.</p>
-      <p>Your consent to this Privacy Policy followed by your submission of such information represents your agreement to that transfer.</p>
-      <p>Gatsby Starter Tyra will take all steps reasonably necessary to ensure that your data is treated securely and in accordance with this Privacy Policy and no transfer of your Personal Data will take place to an organization or a country unless there are adequate controls in place including the security of your data and other personal information.</p>
-      <h2 className="sans-serif">Disclosure Of Data</h2>
-      <h3 className="sans-serif">Legal Requirements</h3>
-      <p>Gatsby Starter Tyra may disclose your Personal Data in the good faith belief that such action is necessary to:</p>
-      <ul>
-        <li>To comply with a legal obligation</li>
-        <li>To protect and defend the rights or property of Gatsby Starter Tyra</li>
-        <li>To prevent or investigate possible wrongdoing in connection with the Service</li>
-        <li>To protect the personal safety of users of the Service or the public</li>
-        <li>To protect against legal liability</li>
-      </ul>
-      <h2 className="sans-serif">Security Of Data</h2>
-      <p>The security of your data is important to us, but remember that no method of transmission over the Internet, or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.</p>
-      <h2 className="sans-serif">Service Providers</h2>
-      <p>We may employ third party companies and individuals to facilitate our Service ("Service Providers"), to provide the Service on our behalf, to perform Service-related services or to assist us in analyzing how our Service is used.</p>
-      <p>These third parties have access to your Personal Data only to perform these tasks on our behalf and are obligated not to disclose or use it for any other purpose.</p>
-      <h3 className="sans-serif">Analytics</h3>
-      <p>We may use third-party Service Providers to monitor and analyze the use of our Service.</p>    
-      <ul>
-        <li>
-          <p className="sans-serif"><strong>Google Analytics</strong></p>
-          <p>Google Analytics is a web analytics service offered by Google that tracks and reports website traffic. Google uses the data collected to track and monitor the use of our Service. This data is shared with other Google services. Google may use the collected data to contextualize and personalize the ads of its own advertising network.</p>
-          <p>You can opt-out of having made your activity on the Service available to Google Analytics by enabling "Do Not Track" in your browser.</p>
-          <p>For more information on the privacy practices of Google, please visit the Google Privacy & Terms web page: <a className="light-red" href="https://policies.google.com/privacy?hl=en">https://policies.google.com/privacy?hl=en</a></p>
-        </li>
-      </ul>
-      <h2 className="sans-serif">Links To Other Sites</h2>
-      <p>Our Service may contain links to other sites that are not operated by us. If you click on a third party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit.</p>
-      <p>We have no control over and assume no responsibility for the content, privacy policies or practices of any third party sites or services.</p>
-      <h2 className="sans-serif">Children's Privacy</h2>
-      <p>Our Service does not address anyone under the age of 18 ("Children").</p>
-      <p>We do not knowingly collect personally identifiable information from anyone under the age of 18. If you are a parent or guardian and you are aware that your Children has provided us with Personal Data, please contact us. If we become aware that we have collected Personal Data from children without verification of parental consent, we take steps to remove that information from our servers.</p>
-      <h2 className="sans-serif">Changes To This Privacy Policy</h2>
-      <p>We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
-      <p>We will let you know via email and/or a prominent notice on our Service, prior to the change becoming effective and update the "effective date" at the top of this Privacy Policy.</p>
-      <p>You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-      <h2 className="sans-serif">Contact Us</h2>
-      <p>If you have any questions about this Privacy Policy, please contact us:</p>
-      <ul>
-        <li>By email: madelyn [dot] eriksen@gmail.com</li>
-      </ul>
+      <p>Protecting your private information is our priority. This Statement of Privacy applies to www.kgautorepair.co and KG Auto Repair and governs data collection and usage. For the purposes of this Privacy Policy, unless otherwise noted, all references to KG Auto Repair include www.kgautorepair.co. The KG Auto Repair website is a Auto Repair site. By using the KG Auto Repair website, you consent to the data practices described in this statement.</p>
+      <h2>Collection of your Personal Information</h2>
+      <p>We do not collect any personal information about you unless you voluntarily provide it to us. However, you may be required to provide certain personal information to us when you elect to use certain products or services available on the Site. These may include: (a) registering for an account on our Site; (b) entering a sweepstakes or contest sponsored by us or on one of our partners; (c) signing up for special offers from selected third parties; (d) sending us an email message; (e) submitting your credit card or other payment information when ordering and purchasing products and services on our Site. To wit, we will use your information for, but not limited to, communicating with you in relation to services and/or products you have requested from us. We also my gather additional personal or non-personal information in the future.</p>
+      <h2>Sharing Information with Third Parties</h2>
+      <p>KG Auto Repair does not sell, rent or lease its customer lists to third parties.</p>
+      <p>KG Auto Repair may share data with trusted partners to help perform statistical analysis, send you email or postal mail, provide customer support, or arrange deliveries. All such thir parties are prohibited from using your personal information except to provide these services to KG Auto Repair, and they are required to maintain the confidentiality of your information.</p>
+      <p>KG Auto Repair may disclose your personal information, without notice, if required to do so by law or in the good faith belief that such action in necessary to: (a) conform to the edicts of the law or comply with legal process served on KG Auto Repair or the site; (b) protect and defend the rights or proper of KG Auto Repair; and/or (c) act under exigent circumstances to protect personal safety of users of KG Auto Repair, or the public.</p>
+      <h2>Automatically Collected Information</h2>
+      <p>Information about your computer hardware and software may be automatically collected by KG Auto Repair. This information can include: your IP Address, browser type, domain names, access times and referring websitre addresses. This information is used for the operation of the service, to maintain quality of the service, and to provide general statistics regarding use of the KG Auto Repair website.</p>
+      <h2>Links</h2>
+      <p>This websites contains links to other sites. Please be awayre that we are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information.</p>
+      <h2>Security of your Personal Information</h2>
+      <p>KG Auto Repair secures your personal information from unauthorized access, use, or disclosure. KG Auto Repair uses the following methods for this purpose:</p>
+      <ul><li>SSL Protocol</li></ul>
+      <p>When personal information (such as a credit card number) is transmitted to other websites, it is protected through the use of encryption, such as the Secure Sockets Layer (SSL) protocol.</p>
+      <p>We strive to take appropriate security measures to protect against unauthorized access to or alteration of your personal information. Unfortunately, no data transmission over the Internet or any wireless network can be guaranteed to be 100% secure. As a result, while we strive to protect your personal information, you acknowledge that: (a) there are security and privacy limitations inherent to the Internet which are beyond our control; and (b) security, integrity, and privacy of any and all information and data exchanged between you and us through this Site cannot be guaranteed.</p>
+      <h2>Children Under Thirteen</h2>
+      <p>KG Auto Repair does not knowingly collect personally identifiable information from children under the age of thirteen. If you are under the age of thirteen, you much ask your parent or guardian for permission to use this website.</p>
+      <h2>Email Communications</h2>
+      <p>From time to time, KG Auto Repair may contact you via email for the purpose of providing announcements, promotional offers, alerts, confirmations, surveys, and/or other general communication. In order to improve our Services, we may receive a notification when you open an email from KG Auto Repair or click on a link therein.</p>
+      <p>If you would like to stop receiving marketing or promotional communication via email from KG Auto Repair, you may opt out of such communications by clicking on the UNSUBSCRIBE button.</p>
+      <h2>Changes to this Statement</h2>
+      <p>KG Auto Repair reserves the right to change this Privacy Policy from time to time. We will notify you about significant changes in the way we treat personal information by sending a notice to the primary email address specified in your account, by placing a prominent notice on our site, and/or by updating any privacy information on this page. your continued use of the Site and/or Services available through this Site after such modification will constitute your: (a) acknowledgment of the modified Privacy Policy; and (b) agreement to abide and be bound by that Policy.</p>
+      <h2>Contact Information</h2>
+      <p>KG Auto Repair welcomes your questions regarding this Statement of Privacy. If you believe that KG Auto Repair has not adhered to this Statement, please contact KG Auto Repair at:</p>
+      <br />
+      <p>KG Auto Repair</p>
+      <p>264 South Broadway</p>
+      <p>Lawrence, MA 01841</p>
     </div>
   </Layout>
 )

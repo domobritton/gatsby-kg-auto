@@ -3,8 +3,8 @@ import Layout from '../common/layouts';
 import Img from 'gatsby-image';
 import { graphql } from 'gatsby';
 import Seo from '../common/seo';
-import { MyMapComponent } from '../visit_us/components/map';
-import { Contact } from '../visit_us/components/contact_us';
+import { MyMapComponent } from '../visit/components/map';
+import { Contact } from '../visit/components/contact_us';
 import styled from 'styled-components';
 
 export default ({ data }) => (

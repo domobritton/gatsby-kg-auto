@@ -75,6 +75,8 @@ const Image = styled(Img)`
 const Box = styled.div`
     margin: 2rem 0.5rem;
     max-width: 32rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    padding: 1rem;
 `;
 
 const Title = styled.h2`

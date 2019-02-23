@@ -27,7 +27,7 @@ export default () => (
         <Text>
           <Title>{data.site.siteMetadata.homepageHeader}</Title>
           <About>{data.site.siteMetadata.homepageAbout}</About>
-          <Contact>Call us today.<br /><a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
+          <Contact>Call us today. <a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
         </Text>
       </Section>
     )} />

@@ -29,8 +29,8 @@ export default () => (
             <Title>{data.site.siteMetadata.siteTitle}</Title>
             <hr />
             <Social>
-              <a href={data.site.siteMetadata.facebook} target='_blank' rel='noreferrer'><FaFacebookF /></a>
-              <a href={data.site.siteMetadata.twitter} target='_blank' rel='noreferrer'><FaTwitter /></a>
+              <a href={data.site.siteMetadata.facebook} target='_blank' rel='noopener noreferrer'><FaFacebookF /></a>
+              <a href={data.site.siteMetadata.twitter} target='_blank' rel='noopener noreferrer'><FaTwitter /></a>
             </Social>
           </SocialWrapper>
           <FooterNav>
@@ -38,6 +38,26 @@ export default () => (
             <PageLink to="/visit">VISIT US</PageLink>
             <PageLink to="/reviews">REVIEWS</PageLink>
             {/* <a href={data.site.siteMetadata.mailChimpUrl} className="near-white f5 tracked pv1 db">JOIN OUR MAILING LIST</a> */}
+            <Address>264 South Broadway<br />Lawrence, MA 01843</Address>
+            <Grid>
+              <GridItem>
+                <div>WORK HOURS</div>
+              </GridItem>
+              <GridItem>
+                <div>Mon. 8AM - 5PM</div>
+                <div>Tue. 8AM - 5PM</div>
+                <div>Wed. 8AM - 5PM</div>
+              </GridItem>
+              <GridItem>
+                <div>Thurs. 8AM - 5PM</div>
+                <div>Fri. 8AM - 5PM</div>
+                <div>Sat. 8AM - 5PM</div>
+              </GridItem>
+              <GridItem>
+                <Sunday>Sunday</Sunday>
+                <div>CLOSED</div>
+              </GridItem>
+            </Grid>
           </FooterNav>
         </Inner>
         <FooterBtm>
@@ -95,6 +115,7 @@ const Social = styled.div`
 const FooterNav = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 `;
 
 const NavTitle = styled.span`
@@ -116,6 +137,45 @@ const FooterBtm = styled.div`
     color: #999;
     width: 100%;
     max-width: 96rem;
+`;
+
+const Address = styled.div`
+    font-size: 1rem;
+    padding: .25rem 0;
+    color: lightgray;
+    letter-spacing: 0.1rem;
+    line-height: 1.5;
+`;
+
+const Grid = styled.div`
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    margin: 2rem 0 0;
+`;
+
+const GridItem = styled.div`
+    border: 1px solid gray;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0.65rem;
+    line-height: 1.5;
+    
+    @media (max-width: 768px) {
+      font-size: 0.65rem;
+    }
+
+    @media (max-width: 600px) {
+      font-size: 0.5rem;
+      height: 70px;
+    }
+`;
+
+const Sunday = styled.div`
+    color: red;
 `;
 
 const Line = styled.div`

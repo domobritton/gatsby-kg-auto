@@ -61,7 +61,7 @@ export const reviewsList = [
     {
         id: 9,
         review: `I took my car in after having problems with getting my car to start. Ivan was more than happy to show me around my car for the troubleshooting portion of the repair process; he covered a slew of things and did simple tests in order to pin-point the problem, all the while explaining every noise & function. The guy was also really flexible with my out-of-the-ordinary paying method (paying 90% of it w/ cash & credit card and the other 10% w/ a post-dated check). All-in-all this place was friendly and very quick. I highly suggest you see them first if you have car troubles.`,
-        name: '',
+        name: 'Thomas C G, Boston, MA',
         img: avatar,
         icon: quote
     },

@@ -8,16 +8,16 @@ import Commitment from '../homepage/components/commitment';
 import Seo from '../common/seo';
 
 export default ({ data }) => {
-  const post = data.featuredPost.edges[0].node;
+  // const post = data.featuredPost.edges[0].node;
   return (
     <Layout>
       <Seo
         title={"Home Page"}
         description={data.site.siteMetadata.description} />
-      <Hero
-        title={post.frontmatter.title}
-        image={post.frontmatter.postImage.childImageSharp.fluid}
-        description={post.frontmatter.description} />
+      <Hero 
+        title={data.site.siteMetadata.title}
+        image={data.banner.childImageSharp.fluid} 
+        description={data.site.siteMetadata.description} />
       <Services />
       <About />
       <Commitment />
@@ -25,33 +25,51 @@ export default ({ data }) => {
   )
 }
 
-export const query = graphql`
+export const dataQuery = graphql`
   query {
-    featuredPost: allMarkdownRemark(
-      limit: 1,
-      sort: {order: DESC, fields: frontmatter___date},
-      filter: {frontmatter: {type: {eq: "post"}}}) {
-      edges {
-        node {
-          frontmatter {
-            title
-            description: metaDescription
-            slug
-            postImage {
-              childImageSharp {
-                fluid(maxWidth: 1920) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-          }
-        }
-      }
-    }
     site {
       siteMetadata {
+        title
         description
+      }
+    }
+    banner: file(relativePath: {eq: "img/flatlay.jpg"}) {
+      childImageSharp {
+        fluid(maxWidth: 1920) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
   }
 `
+
+// export const query = graphql`
+//   query {
+//     featuredPost: allMarkdownRemark(
+//       limit: 1,
+//       sort: {order: DESC, fields: frontmatter___date},
+//       filter: {frontmatter: {type: {eq: "post"}}}) {
+//       edges {
+//         node {
+//           frontmatter {
+//             title
+//             description: metaDescription
+//             slug
+//             postImage {
+//               childImageSharp {
+//                 fluid(maxWidth: 1920) {
+//                   ...GatsbyImageSharpFluid
+//                 }
+//               }
+//             }
+//           }
+//         }
+//       }
+//     }
+//     site {
+//       siteMetadata {
+//         description
+//       }
+//     }
+//   }
+// `

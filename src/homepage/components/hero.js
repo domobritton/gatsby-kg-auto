@@ -12,11 +12,10 @@ export default ({image, title, description}) => (
           fluid={image}
           alt={description} />
       </>
-      <Title>KG AUTO REPAIR</Title>
+      <Title>{title}</Title>
     </HeroWrapper>
     <Section>
-      <Subtitle>{title}</Subtitle>
-      <Description>{description}</Description>
+      <Subtitle>{description}</Subtitle>
     </Section>
     <LogoSection>
       <LogoWrapper>
@@ -70,32 +69,28 @@ const Section = styled.div`
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 4rem 0.5rem 2rem;
+  padding: 1rem 0.5rem 1rem;
   align-items: center;
-  background: #f4f4f4;
+  background: #081B38;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
-const Subtitle = styled.h2`
-  font-size: 40px;
-  width: 75%;
-  text-align: center;
-  margin: 0;
-  padding: 0;
-`;
-
-const Description = styled.div`
+const Subtitle = styled.div`
   font-size: 25px;
   margin: 10px 0;
   padding: 0;
   text-align: center;
+  color: #999;
 
   @media (max-width: 768px) {
     font-size: 20px;
   }
 `;
+
 const LogoSection = styled.div`
-  padding: 0 2rem 4rem;
+  padding: 5rem 2rem 5rem;
 `;
+
 const LogoWrapper = styled.div`
   display: grid;
   justify-items: center;

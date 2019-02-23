@@ -93,6 +93,7 @@ const Header = styled.div`
   align-items: center;
   top: 0;
   height: 7vh;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 const Inner = styled.div`
