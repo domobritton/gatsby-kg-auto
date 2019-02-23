@@ -38,10 +38,6 @@ export default class Navbar extends React.Component {
         query {
           site {
             siteMetadata {
-              navbarLinks {
-                to
-                name
-              }
               siteTitle: title
               mailChimpUrl
             }
