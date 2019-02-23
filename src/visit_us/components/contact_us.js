@@ -11,12 +11,14 @@ export const Contact = ({ data }) => {
             <ContactUs href='tel:+1-978-975-3882'>(978) 975-3882</ContactUs>
         </Wrapper>
         <Wrapper>
-            <Form name="contact" method="POST" data-netlify="true">
-                <Input type="text" name="name"  placeholder='Name'/>  
-                <Input type="email" name="email"  placeholder='Email'/>
-                <TextArea name="message" placeholder='Message'></TextArea>
-                <Button type="submit">Send</Button>
-            </Form>
+                <Form name="contact" method="POST" data-netlify="true">
+            <FormShadow>
+                    <Input type="text" name="name"  placeholder='Name'/>  
+                    <Input type="email" name="email"  placeholder='Email'/>
+                    <TextArea name="message" placeholder='Message'></TextArea>
+                    <Button type="submit">Send</Button>
+            </FormShadow>
+                </Form>
         </Wrapper>
     </Section>
   )
@@ -34,6 +36,10 @@ const Wrapper = styled.div`
     flex-basis: 50%;
     align-items: center;
     justify-content: center;
+
+    @media (max-width: 900px) {
+        flex-basis: 100%;
+    }
 `;
 
 const Title = styled.h1`
@@ -50,6 +56,10 @@ const Address = styled.div`
     p {
         margin: 0;
     }
+
+    @media (max-width: 900px) {
+        font-size: 1rem;
+    }
 `;
 
 const ContactUs = styled.a`
@@ -58,17 +68,48 @@ const ContactUs = styled.a`
     color: #333;
     line-height: 1.5;
     margin-top: 2rem;
+
+    @media (max-width: 900px) {
+        font-size: 1.25rem;
+    }
+`;
+
+const FormShadow = styled.div`
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 `;
 
 const Form = styled.form`
     display: flex;
+    position: relative;
     flex-direction: column;
-    width: 70%;
+    width: 400px;
+    height: 400px;
+
+    @media (max-width: 900px) {
+        margin-top: 4rem;
+    }
+
+    -webkit-box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
+    -moz-box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
+    box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
+
+    @media (max-width: 960px) {
+      -webkit-box-shadow: none;
+      -mox-box-shadow: none;
+      box-shadow: none;
+    }
 `;
 
 const Input = styled.input`
     margin: 1rem 0;
     height: 40px;
+    width: 100%;
     padding: 0.5rem;
     border: 1px solid lightgray;
 `;
@@ -77,7 +118,7 @@ const TextArea = styled.textarea`
     margin: 1rem 0;
     height: 80px;
     width: 100%;
-    min-width: 400px;
+    min-width: 350px;
     resize: none;
     padding: 0.5rem;
     border: 1px solid lightgray;

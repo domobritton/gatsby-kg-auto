@@ -1,66 +1,14 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
-import { FiMenu } from 'react-icons/fi';
-import '../styles/custom.tachyons.css';
-
-
-const MultiLink = (props) => {
-  const internal = /^\/(?!\/)/.test(props.to);
-  let result;
-  if (internal) {
-    result = (<Link to={props.to} className={props.className}>{props.children}</Link>)
-  } else {
-    result = (<a href={props.to} className={props.className}>{props.children}</a>)
-  }
-  return result;
-}
-
-const SliderMenu = (props) => {
-  // Prevents a flash of visible menu items when the entrance is triggered
-  let extraClasses;
-  if (props.active === null) {
-    extraClasses = " dn";
-  } else {
-    extraClasses = (props.active ? " fadeIn" : " fadeOut");
-  }
-  return (
-    <div
-      className={
-        "flex flex-column justify-center items-center bg-washed-red fixed top z-max w-100 ease" + (props.active ? " vh-93" : " h0")
-      }>
-      <Link
-        to="/"
-        className={"ttu tracked dark-gray f3 no-underline menu__item pv5" + extraClasses}
-      >{props.siteTitle}
-      </Link>
-      {props.extraLinks.map((navLink, idx) => (
-        <MultiLink
-          key={idx}
-          to={navLink.to}
-          className={"sans-serif ttu mid-gray f5 no-underline menu__item pv3" + extraClasses}
-        >{navLink.name}
-        </MultiLink>
-      ))}
-      <Link
-        to="/visit"
-        className={"sans-serif ttu mid-gray f5 no-underline menu__item pv3" + extraClasses}
-      >About</Link>
-    </div>
-  )
-}
-
-
+import { SliderMenu } from './sliderMenu';
+import styled from 'styled-components';
 export default class Navbar extends React.Component {
-  constructor(props) {
-    super();
-    this.state = {
+ state = {
       // Null rather than false to check for initialization
       width: typeof window !== 'undefined' ?
       window.innerWidth : '',
       menuToggle: null,
-    };
-    this.toggleMenu = this.toggleMenu.bind(this);
-  };
+  }
 
   componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
@@ -72,17 +20,18 @@ export default class Navbar extends React.Component {
 
   handleWindowSizeChange = () => {
   this.setState({ width: window.innerWidth });
-};
+  }
 
-  toggleMenu(event) {
+  toggleMenu = event => {
     this.setState({
       menuToggle: !this.state.menuToggle,
     })
-  };
+  }
 
   render () {
     const { width } = this.state;
     const isMobile = width <= 960;
+    const { menuToggle } = this.state;
     return (
       <StaticQuery
         query={graphql`
@@ -101,30 +50,28 @@ export default class Navbar extends React.Component {
       `}
       render={data => (
         <React.Fragment>
-          <div
-            className="bg-white flex w-100 vh-7 pv3 flex justify-between items-center top-0 z-999 bb b--light-gray"
-            style={{position: "sticky"}}>
-            <div className="w-100 mw8 flex justify-between items-center ph4 pa2-ns">
-            {isMobile && 
-              <button
-                className="ttu tracked dark-gray f4 no-underline bn bg-transparent pointer"
-                onClick={this.toggleMenu}>
-                <FiMenu />
-              </button>
+          <Header>
+            <Inner>
+            {isMobile &&        
+              <Hamburger className={menuToggle && 'active'} onClick={this.toggleMenu}>
+                <Line className="line"></Line>
+                <Line className="line"></Line>
+                <Line className="line"></Line>
+              </Hamburger>
             }
-              <Link to="/" className="ttu tracked dark-gray f4 no-underline">{data.site.siteMetadata.siteTitle}</Link>
-            </div>
-            <div className="dn w-100 mw5 flex-l justify-around items-center">
-              {/* <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dn dib-l">SIGN UP</a> */}
-              <Link to="/" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">HOME</Link>
-              <span className="sans-serif mid-gray dn dib-l">|</span>
-              <Link to="/visit" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">VISIT US</Link>
-              <span className="sans-serif mid-gray dn dib-l">|</span>
-              <Link to="/reviews" className="sans-serif ttu mid-gray f5 no-underline dn dib-l">REVIEWS</Link>
-              {/* <span className="sans-serif mid-gray dn dib-l">|</span> */}
-              {/* <span className="sans-serif mid-gray dn dib-l">Call us today!<a href='tel:+1-978-1111'>(978)111-1111</a></span> */}
-            </div>
-          </div>
+              <Title to="/">{data.site.siteMetadata.siteTitle}</Title>
+            </Inner>
+            {!isMobile &&
+              <DeskMenu>
+                {/* <a href={data.site.siteMetadata.mailChimpUrl} className="sans-serif ttu light-red f5 no-underline dib-l">SIGN UP</a> */}
+                <DeskLink to="/">HOME</DeskLink>
+                <span>|</span>
+                <DeskLink to="/visit">VISIT US</DeskLink>
+                <span>|</span>
+                <DeskLink to="/reviews">REVIEWS</DeskLink>
+              </DeskMenu>     
+            }
+          </Header>
           <SliderMenu
             active={this.state.menuToggle}
             extraLinks={data.site.siteMetadata.navbarLinks}
@@ -134,3 +81,79 @@ export default class Navbar extends React.Component {
     )
   }
 }
+
+const Header = styled.div`
+  position: sticky;
+  z-index: 999;
+  padding: 1.5rem 0;
+  background: #fff;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  height: 7vh;
+`;
+
+const Inner = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+`;
+
+const Title = styled(Link)`
+  font-size: 1.25rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #333;
+  letter-spacing: .1em;
+  cursor: pointer;
+`;
+
+const DeskMenu = styled.div`
+  width: 100%;
+  max-width: 16rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`;
+
+const DeskLink = styled(Link)`
+  font-size: 1rem;
+  text-decoration: none;
+  color: #555;
+`;
+
+const Hamburger = styled.div`
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.active .line:nth-child(1) {
+    width: 23px;
+  }
+
+  &.active .line:nth-child(2) {
+    width: 30px;
+  }
+
+  &.active .line {
+    -webkit-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+    transform: rotate(30deg);
+  }
+`;
+
+const Line = styled.span`
+  width: 35px;
+  height: 3px;
+  background-color: #333;
+  display: block;
+  margin: 4px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+`;

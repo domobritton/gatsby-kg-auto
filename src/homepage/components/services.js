@@ -28,7 +28,7 @@ export default () => {
             `}
             render={(data) => (
                 <>
-                <Image fluid={data.image.childImageSharp.fluid} alt="Services" />
+                <Image fluid={data.image.childImageSharp.fluid} alt="Services" className="w-100 mw6" />
                 <Box>
                     <Title>{data.copy.frontmatter.title}</Title>
                     <Services>
@@ -52,6 +52,7 @@ const Section = styled.div`
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    padding: 0 0.5rem;
 `;
 
 const Image = styled(Img)`
@@ -59,11 +60,20 @@ const Image = styled(Img)`
     -webkit-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     -moz-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
+
+    @media (max-width: 960px) {
+        -webkit-box-shadow: none;
+        -mox-box-shadow: none;
+        box-shadow: none;
+    }
+
+    @media (max-width: 600px) {
+    
+    }
 `;
 
 const Box = styled.div`
     margin: 2rem 0.5rem;
-    width: 100%;
     max-width: 32rem;
 `;
 
@@ -81,6 +91,8 @@ const Services = styled.ul`
     grid-template-columns: repeat(2, 1fr);
     margin: 0;
     padding: 0;
+    word-wrap: break-word;
+    text-align: center;
 `;
 
 const Wrapper = styled.div`

@@ -12,7 +12,7 @@ export default ({image, title, description}) => (
           fluid={image}
           alt={description} />
       </>
-        <Title>KG AUTO REPAIR</Title>
+      <Title>KG AUTO REPAIR</Title>
     </HeroWrapper>
     <Section>
       <Subtitle>{title}</Subtitle>
@@ -47,13 +47,23 @@ const Overlay = styled.div`
 
 const Title = styled.h1`
   position: absolute;
-  top: 30%;
-  left: 53%;
+  top: 50%;
+  left: 50%;
   width: 700px;
-  transform: translate(-50%, -50%);
+  height: 150px;
+  text-align: center;
+  margin: -70px 0 0 -350px;
   color: white;
   font-size: 80px;
   z-index: 2;
+
+  @media (max-width: 768px) {
+    font-size: 60px;
+  }
+
+  @media (max-width: 600px) {
+    font-size: 50px;
+  }
 `;
 
 const Section = styled.div`
@@ -77,6 +87,11 @@ const Description = styled.div`
   font-size: 25px;
   margin: 10px 0;
   padding: 0;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
 `;
 const LogoSection = styled.div`
   padding: 0 2rem 4rem;

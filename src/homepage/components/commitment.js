@@ -48,12 +48,22 @@ const Image = styled(Img)`
     -webkit-box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
     -moz-box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
+
+    @media (max-width: 960px) {
+      -webkit-box-shadow: none;
+      -mox-box-shadow: none;
+      box-shadow: none;
+    }
 `;
 
 const Wrapper = styled.div`
     margin: 2rem 0.5rem;
     width: 100%;
     max-width: 32rem;
+
+    @media (max-width: 1055px) {
+      max-width: 48rem;
+    }
 `;
 
 const Title = styled.h2`
@@ -66,6 +76,5 @@ const About = styled.div`
     width: 100%;
     font-size: 1rem;
     line-height: 1.5;
-    text-align: center;
     margin-top: 0;
 `;
