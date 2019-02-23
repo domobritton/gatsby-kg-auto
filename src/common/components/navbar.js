@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql, Link } from 'gatsby';
+import { disableBodyScroll, enableBodyScroll, clearAllBodyScrollLocks } from 'body-scroll-lock';
 import { SliderMenu } from './sliderMenu';
 import styled from 'styled-components';
 export default class Navbar extends React.Component {
@@ -9,13 +10,16 @@ export default class Navbar extends React.Component {
       window.innerWidth : '',
       menuToggle: null,
   }
+  targetElement = null;
 
   componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
+    this.targetElement = document.querySelector('#slider');
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleWindowSizeChange);
+    clearAllBodyScrollLocks();
   }
 
   handleWindowSizeChange = () => {
@@ -26,6 +30,16 @@ export default class Navbar extends React.Component {
     this.setState({
       menuToggle: !this.state.menuToggle,
     })
+    this.scrollLock();
+  }
+
+  scrollLock = () => {
+    const { menuToggle } = this.state;
+    if (menuToggle) {
+      disableBodyScroll(this.targetElement);
+    } else {
+      enableBodyScroll(this.targetElement);
+    }
   }
 
   render () {
@@ -69,6 +83,7 @@ export default class Navbar extends React.Component {
             }
           </Header>
           <SliderMenu
+            id='slider'
             active={this.state.menuToggle} />
         </React.Fragment>
       )} />
@@ -77,7 +92,7 @@ export default class Navbar extends React.Component {
 }
 
 const Header = styled.div`
-  position: sticky;
+  position: fixed;
   z-index: 999;
   padding: 1.5rem 0;
   background: #fff;
