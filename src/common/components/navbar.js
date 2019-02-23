@@ -69,9 +69,7 @@ export default class Navbar extends React.Component {
             }
           </Header>
           <SliderMenu
-            active={this.state.menuToggle}
-            extraLinks={data.site.siteMetadata.navbarLinks}
-            siteTitle={data.site.siteMetadata.siteTitle}/>
+            active={this.state.menuToggle} />
         </React.Fragment>
       )} />
     )

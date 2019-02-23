@@ -42,34 +42,3 @@ export const dataQuery = graphql`
     }
   }
 `
-
-// export const query = graphql`
-//   query {
-//     featuredPost: allMarkdownRemark(
-//       limit: 1,
-//       sort: {order: DESC, fields: frontmatter___date},
-//       filter: {frontmatter: {type: {eq: "post"}}}) {
-//       edges {
-//         node {
-//           frontmatter {
-//             title
-//             description: metaDescription
-//             slug
-//             postImage {
-//               childImageSharp {
-//                 fluid(maxWidth: 1920) {
-//                   ...GatsbyImageSharpFluid
-//                 }
-//               }
-//             }
-//           }
-//         }
-//       }
-//     }
-//     site {
-//       siteMetadata {
-//         description
-//       }
-//     }
-//   }
-// `
