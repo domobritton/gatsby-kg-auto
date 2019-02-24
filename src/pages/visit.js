@@ -16,7 +16,7 @@ export default ({ data }) => (
     <>
       <Overlay />
       <Img
-        className="w-100 vh-50 center"
+        className="w-100 vh-57 center"
         fluid={data.banner.childImageSharp.fluid} />
     </>
     </HeroWrapper>

@@ -95,10 +95,15 @@ const SocialWrapper = styled.div`
     margin-bottom: 2rem;
     max-width: 16rem;
     width: 100%;
+    
+    @media (max-width: 600px) {
+      text-align: center;
+    }
 `;
 
 const Title = styled.span`
     font-size: 2.25rem;
+
 `;
 
 const Social = styled.div`
@@ -116,6 +121,10 @@ const FooterNav = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+
+    @media (max-width: 600px) {
+      align-items: center;
+    }
 `;
 
 const NavTitle = styled.span`

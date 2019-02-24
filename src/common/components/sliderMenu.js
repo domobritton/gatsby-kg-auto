@@ -53,7 +53,7 @@ const Menu = styled.div`
   transition: all 0.4s ease;
 
   &.active {
-    height: 100vh;
+    height: 100%;
   }
 `;
 

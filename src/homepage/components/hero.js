@@ -8,7 +8,7 @@ export default ({image, title, description}) => (
       <>
         <Overlay />
         <Img
-          className="w-100 vh-50 center"
+          className="w-100 vh-57 center"
           fluid={image}
           alt={description} />
       </>
@@ -51,7 +51,7 @@ const Title = styled.h1`
   width: 700px;
   height: 150px;
   text-align: center;
-  margin: -70px 0 0 -350px;
+  margin: -30px 0 0 -350px;
   color: white;
   font-size: 80px;
   z-index: 2;

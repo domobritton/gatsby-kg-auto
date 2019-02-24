@@ -14,7 +14,7 @@ export default class Navbar extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this.handleWindowSizeChange);
-    this.targetElement = document.querySelector('#slider');
+    this.targetElement = document.getElementById('slider');
   }
 
   componentWillUnmount() {
@@ -30,10 +30,13 @@ export default class Navbar extends React.Component {
     this.setState({
       menuToggle: !this.state.menuToggle,
     })
-    this.scrollLock();
+    setTimeout(() => {
+      this.scrollLock();
+    }, 0);
   }
 
   scrollLock = () => {
+    debugger;
     const { menuToggle } = this.state;
     if (menuToggle) {
       disableBodyScroll(this.targetElement);
