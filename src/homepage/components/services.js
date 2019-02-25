@@ -1,7 +1,9 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
+import { Animated } from "react-animated-css";
 import { serviceList } from '../../../content/copy/homepage__servicesList';
+import Scroll from '../../common/utilities/scroll';
 import styled from 'styled-components';
 
 
@@ -31,14 +33,20 @@ export default () => {
                 <Image fluid={data.image.childImageSharp.fluid} alt="Services" className="w-100 mw6" />
                 <Box>
                     <Title>{data.copy.frontmatter.title}</Title>
-                    <Services>
-                        {serviceList.map(service => (
-                            <Wrapper key={service.id}>
-                                <Icon src={service.img} />
-                                <Service>{service.service}</Service>
-                            </Wrapper>
-                        ))}
-                    </Services>  
+                    <Scroll>
+                        {({isVisible}) => (
+                            <Services id='animate'>
+                            {serviceList.map(service => (
+                                <Wrapper key={service.id}>
+                                    <Animated animationIn='fadeInUp' isVisible={isVisible}>
+                                        <Icon src={service.img} />
+                                    </Animated>
+                                    <Service>{service.service}</Service>
+                                </Wrapper>
+                            ))}
+                        </Services>  
+                        )}
+                    </Scroll>
                 </Box>
                 </>
             )} />

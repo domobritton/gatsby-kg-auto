@@ -36,7 +36,6 @@ export default class Navbar extends React.Component {
   }
 
   scrollLock = () => {
-    debugger;
     const { menuToggle } = this.state;
     if (menuToggle) {
       disableBodyScroll(this.targetElement);

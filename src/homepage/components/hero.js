@@ -1,19 +1,10 @@
 import React from "react";
-import Img from 'gatsby-image';
+import HeroImage from '../../hero/heroImage';
 import styled from 'styled-components';
 
 export default ({image, title, description}) => (
   <>
-    <HeroWrapper>
-      <>
-        <Overlay />
-        <Img
-          className="w-100 vh-57 center"
-          fluid={image}
-          alt={description} />
-      </>
-      <Title>{title}</Title>
-    </HeroWrapper>
+    <HeroImage image={image} title={title} description={description} />
     <Section>
       <Subtitle>{description}</Subtitle>
     </Section>
@@ -29,41 +20,6 @@ export default ({image, title, description}) => (
     </LogoSection>
   </>
 )
-
-const HeroWrapper = styled.div`
-  position: relative;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(49, 49, 49, 0.3);
-`;
-
-const Title = styled.h1`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 700px;
-  height: 150px;
-  text-align: center;
-  margin: -30px 0 0 -350px;
-  color: white;
-  font-size: 80px;
-  z-index: 2;
-
-  @media (max-width: 768px) {
-    font-size: 60px;
-  }
-
-  @media (max-width: 600px) {
-    font-size: 40px;
-  }
-`;
 
 const Section = styled.div`
   display: flex;

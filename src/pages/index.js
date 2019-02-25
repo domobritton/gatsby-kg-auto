@@ -8,7 +8,6 @@ import Commitment from '../homepage/components/commitment';
 import Seo from '../common/seo';
 
 export default ({ data }) => {
-  // const post = data.featuredPost.edges[0].node;
   return (
     <Layout>
       <Seo

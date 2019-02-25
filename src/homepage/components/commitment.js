@@ -27,6 +27,7 @@ export default () => (
         <React.Fragment>
           <Wrapper>
             <Title>{data.copy.frontmatter.title}</Title>
+            <Line />
             <About dangerouslySetInnerHTML={{__html: data.copy.html}} />
           </Wrapper>
           <Image fluid={data.image.childImageSharp.fluid} alt="Our Commitment" className="w-100 mw6" />
@@ -70,6 +71,25 @@ const Title = styled.h2`
     font-size: 2.25rem;
     color: #333;
     font-weight: 500;
+    margin-bottom: 1rem;
+
+    @media (max-width: 1055px) {
+      text-align: center;
+    }
+`;
+
+const Line = styled.hr`
+    height: 2px;
+    width: 9rem;
+    background: #0053ba;
+    border: none;
+    margin-bottom: 2rem;
+    margin-left: 4rem;
+
+    @media (max-width: 1055px) {
+      margin: 0 auto;
+      margin-bottom: 2rem;
+    }
 `;
 
 const About = styled.div`
@@ -77,4 +97,8 @@ const About = styled.div`
     font-size: 1rem;
     line-height: 1.5;
     margin-top: 0;
+
+    @media (max-width: 1055px) {
+      margin-bottom: 4rem;
+    }
 `;

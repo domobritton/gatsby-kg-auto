@@ -1,25 +1,19 @@
 import React from 'react';
 import Layout from '../common/layouts';
-import Img from 'gatsby-image';
+import HeroImage from '../hero/heroImage';
 import { graphql } from 'gatsby';
 import Seo from '../common/seo';
 import { Reviews } from '../reviews/components/reviews';
-import styled from 'styled-components';
-
 
 export default ({ data }) => (
   <Layout>
     <Seo
       title={`Review ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title} />
-    <HeroWrapper>
-      <>
-        <Overlay />
-        <Img 
-          className="w-100 vh-57 center"
-          fluid={data.banner.childImageSharp.fluid} />
-      </>
-    </HeroWrapper>
+      <HeroImage 
+        image={data.banner.childImageSharp.fluid}
+        title={data.site.siteMetadata.title}
+        description={data.markdownRemark.frontmatter.title} />
     <Reviews data={data} />
   </Layout>
 )
@@ -46,16 +40,3 @@ export const dataQuery = graphql`
     }
   }
 `
-const HeroWrapper = styled.div`
-  position: relative;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: rgba(49, 49, 49, 0.3);
-`;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StaticQuery, graphql } from 'gatsby';
+import { Animated } from "react-animated-css";
 import { brakes, oil, tire, wrench } from '../../../content/copy/homepage__about';
 import styled from 'styled-components';
 
@@ -25,7 +26,10 @@ export default () => (
           <img src={brakes} alt='brakes' />
         </Wrapper>
         <Text>
-          <Title>{data.site.siteMetadata.homepageHeader}</Title>
+          <Animated animationIn='fadeInUp' isVisible={true}>
+              <Title>{data.site.siteMetadata.homepageHeader}</Title>
+              <Line />
+          </Animated>
           <About>{data.site.siteMetadata.homepageAbout}</About>
           <Contact>Call us today. <br /><a href='tel:+1-978-975-3882'>(978) 975-3882</a></Contact>
         </Text>
@@ -70,14 +74,18 @@ const Text = styled.div`
 
 const Title = styled.h2`
     font-size: 2.25rem;
-    // margin: 4rem 0.5rem 2rem;
     color: #333;
     font-weight: 500;
     text-align: center;
+    margin-bottom: 1rem;
+`;
 
-    @media (max-width: 1055px) {
-      text-align: left;
-    }
+const Line = styled.hr`
+    height: 2px;
+    width: 9rem;
+    background: #0053ba;
+    border: none;
+    margin-bottom: 2rem;
 `;
 
 const About = styled.p`
