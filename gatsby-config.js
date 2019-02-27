@@ -23,6 +23,23 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-graphql",
+      options: {
+        typeName: "Yelp",
+        fieldName: "yelp",
+        // Url to query from
+        url: "https://api.yelp.com/v3/graphql",
+        // HTTP headers
+        headers: {
+          // Learn about environment variables: https://gatsby.app/env-vars
+          // Authorization: `bearer ${process.env.GITHUB_TOKEN}`,
+          Authorization: `bearer L0i2TWcF-xr7BEMCsFUBn9bqOeEJT5Ahr3jenBWPVard6fhDmycqHK2AWSKMalDrisGrTkvyiYZWAdPAZoX7vAmZdELsukTOj9XIHLYvlByIKmeZ32gDrB_BPpFzXHYx`,
+          },
+        // Additional options to pass to node-fetch
+        fetchOptions: {},
+      },
+    },
+    {
       resolve: 'gatsby-transformer-remark',
       options: {
         plugins: [

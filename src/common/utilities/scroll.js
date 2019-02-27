@@ -26,7 +26,6 @@ export default class Scroll extends Component {
    }
   render() {
       const { children } = this.props;
-      console.log('scroll', this.state.isVisible);
     return children({
        isVisible: this.state.isVisible 
     })

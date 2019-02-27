@@ -3,7 +3,7 @@ import Layout from '../common/layouts';
 import HeroImage from '../hero/heroImage';
 import { graphql } from 'gatsby';
 import Seo from '../common/seo';
-import { Reviews } from '../reviews/components/reviews';
+import Reviews from '../reviews/components/reviews';
 
 export default ({ data }) => (
   <Layout>
@@ -23,6 +23,20 @@ export const dataQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    yelp {
+      reviews(business: "kg-auto-repair-lawrence") {
+        total
+        review {
+          id
+          rating
+          text
+          user {
+            name
+            image_url
+          }
+        }
       }
     }
     markdownRemark(frontmatter: {name: {eq: "reviews__copy"}}) {

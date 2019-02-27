@@ -1,23 +1,87 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { reviewsList } from '../../../content/copy/reviewsList';
+import quote from '../../../content/img/quote.svg';
+import four from '../../../content/img/small_4.png';
+import five from '../../../content/img/small_5.png';
+import yelp from '../../../content/img/Yelp_trademark_RGB.png';
 import styled from 'styled-components';
 
-export const Reviews = ({ data }) => {
-  return (
-    <Section>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
-        <Grid>
-            {reviewsList.map(review => (
-                <GridItem key={review.id}>
-                    <Image src={review.img} />
-                    <Review><Quote src={review.icon} />{review.review}</Review>
-                    <Name>{review.name}</Name>
-                </GridItem>
-            ))}
-        </Grid>
-    </Section>
-  )
+export default class Reviews extends Component {
+
+  state = {
+    reviews: '',
+  }
+
+  componentDidMount() {
+    const yelp = this.props.data.yelp.reviews.review;
+    let reviews = [...yelp, ...reviewsList];
+    this.setState({ reviews })
+  }
+
+  stars = (rating) => {
+    if (rating === 4) {
+      return (
+        <div>
+          <Stars src={four} alt='four yelp stars' />
+          <Link>Read more on 
+            <a 
+              href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
+              target='_blank' rel='noopener noreferrer'
+              >
+              <Yelp src={yelp} />
+            </a>
+          </Link>
+        </div>
+      )
+    } else if (rating === 5) {
+      return (
+        <div>
+          <Stars src={five} alt='five yelp stars' />
+          <Link>Read more on 
+            <a 
+              href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
+              target='_blank' rel='noopener noreferrer'
+              >
+              <Yelp src={yelp} />
+            </a>
+          </Link>
+        </div>
+      )
+    } else if (rating.length > 0) {
+      return (
+        <Link>Read more on 
+          <a 
+            href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
+            target='_blank' rel='noopener noreferrer'
+            >
+            <Yelp src={yelp} />
+          </a>
+        </Link>
+      )
+    }
+  }
+
+  render() {
+    const { reviews } = this.state;
+    const { data } = this.props;
+    if (!reviews) return null;
+    return (
+      <Section>
+      <h1>{data.markdownRemark.frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{__html: data.markdownRemark.html}} />
+      <Grid>
+          {reviews.map(review => (
+              <GridItem key={review.id}>
+                  <Image src={review.user.image_url} />
+                  <Review><Quote src={quote} />{review.text}</Review>
+                  <Name>{review.user.name}</Name>
+                  {this.stars(review.rating)}
+              </GridItem>
+          ))}
+      </Grid>
+  </Section>
+    )
+  }
 }
 
 const Section = styled.div`
@@ -65,9 +129,26 @@ const Name = styled.div`
 
 const Image = styled.img`
   width: 80px;
+  height: 80px;
 `;
 
 const Quote = styled.img`
   width: 1.5rem;
   padding-right: 0.2rem;
+`;
+
+const Stars = styled.img`
+  margin-top: 1rem;
+`;
+
+const Link = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 1.25rem;
+  color: lightgray;
+`;
+
+const Yelp = styled.img`
+  width: 6rem;
 `;
