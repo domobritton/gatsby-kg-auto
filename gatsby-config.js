@@ -9,6 +9,7 @@ module.exports = {
     mailChimpToken: "MAILCHIMP TOKEN HERE",
     facebook: "https://www.facebook.com/KGAutoRepair/", // YOUR FACEBOOK PROFILE HERE
     twitter: "https://twitter.com/kgautorepair", // YOUR TWITTER PROFILE HERE
+    yelp: "https://www.yelp.com/biz/kg-auto-repair-lawrence" // YOUR YELP PROFILE HERE
   },
   plugins: [
     'gatsby-plugin-sitemap',

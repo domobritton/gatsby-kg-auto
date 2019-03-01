@@ -50,7 +50,7 @@ const Image = styled(Img)`
     -moz-box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: 169px 46px 0px 90px rgba(205,205,205,1);
 
-    @media (max-width: 960px) {
+    @media (max-width: 1003px) {
       -webkit-box-shadow: none;
       -mox-box-shadow: none;
       box-shadow: none;

@@ -2,7 +2,8 @@ import React from 'react';
 import { Link, StaticQuery, graphql } from 'gatsby';
 import {
   FaFacebookF,
-  FaTwitter
+  FaTwitter, 
+  FaYelp
 } from 'react-icons/fa';
 import styled from 'styled-components';
 import 'tachyons';
@@ -18,6 +19,7 @@ export default () => (
             mailChimpUrl
             facebook
             twitter
+            yelp
           }
         }
       } 
@@ -31,6 +33,7 @@ export default () => (
             <Social>
               <a href={data.site.siteMetadata.facebook} target='_blank' rel='noopener noreferrer'><FaFacebookF /></a>
               <a href={data.site.siteMetadata.twitter} target='_blank' rel='noopener noreferrer'><FaTwitter /></a>
+              <a href={data.site.siteMetadata.yelp} target='_blank' rel='noopener noreferrer'><FaYelp /></a>
             </Social>
           </SocialWrapper>
           <FooterNav>

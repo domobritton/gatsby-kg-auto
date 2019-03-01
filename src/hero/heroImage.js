@@ -38,7 +38,7 @@ export default class HeroImage extends Component {
         <Overlay />
         <Img
           id='hero'
-          style={{ width: '100%', maxHeight: '411px'}}
+          style={{ width: '100%', maxHeight: '620px', transition: 'height 9999999s'}}
           className="vh-57 center hero"
           fluid={image}
           alt={description} />

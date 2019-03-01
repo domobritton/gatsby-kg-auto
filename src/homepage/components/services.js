@@ -3,11 +3,12 @@ import { StaticQuery, graphql } from 'gatsby';
 import Img from 'gatsby-image';
 import { Animated } from "react-animated-css";
 import { serviceList } from '../../../content/copy/homepage__servicesList';
+import { Rating } from './rating';
 import Scroll from '../../common/utilities/scroll';
 import styled from 'styled-components';
 
 
-export default () => {
+export default ({ rating }) => {
     return (
         <Section>
             <StaticQuery
@@ -30,6 +31,7 @@ export default () => {
             `}
             render={(data) => (
                 <>
+                <Rating rating={rating}/>
                 <Image fluid={data.image.childImageSharp.fluid} alt="Services" className="w-100 mw6" />
                 <Scroll>
                     {({isVisible}) => (
@@ -59,6 +61,7 @@ const Section = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    position: relative;
     align-items: center;
     padding: 0 0.5rem;
 `;
@@ -68,7 +71,7 @@ const Image = styled(Img)`
     -moz-box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
     box-shadow: -169px 46px 0px 90px rgba(205,205,205,1);
 
-    @media (max-width: 960px) {
+    @media (max-width: 1003px) {
         -webkit-box-shadow: none;
         -mox-box-shadow: none;
         box-shadow: none;

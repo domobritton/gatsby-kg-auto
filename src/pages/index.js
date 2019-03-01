@@ -8,6 +8,7 @@ import Commitment from '../homepage/components/commitment';
 import Seo from '../common/seo';
 
 export default ({ data }) => {
+  const { business: { rating } } = data.yelp;
   return (
     <Layout>
       <Seo
@@ -17,7 +18,7 @@ export default ({ data }) => {
         title={data.site.siteMetadata.title}
         image={data.banner.childImageSharp.fluid} 
         description={data.site.siteMetadata.description} />
-      <Services />
+      <Services rating={rating} />
       <About />
       <Commitment />
     </Layout>
@@ -30,6 +31,11 @@ export const dataQuery = graphql`
       siteMetadata {
         title
         description
+      }
+    }
+    yelp {
+      business(id: "kg-auto-repair-lawrence") {
+        rating
       }
     }
     banner: file(relativePath: {eq: "img/flatlay.jpg"}) {

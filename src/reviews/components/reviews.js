@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { reviewsList } from '../../../content/copy/reviewsList';
+import Yelp from '../../shared/yelp';
 import quote from '../../../content/img/quote.svg';
-import four from '../../../content/img/small_4.png';
-import five from '../../../content/img/small_5.png';
 import yelp from '../../../content/img/Yelp_trademark_RGB.png';
 import styled from 'styled-components';
 
@@ -18,49 +17,6 @@ export default class Reviews extends Component {
     this.setState({ reviews })
   }
 
-  stars = (rating) => {
-    if (rating === 4) {
-      return (
-        <div>
-          <Stars src={four} alt='four yelp stars' />
-          <Link>Read more on 
-            <a 
-              href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
-              target='_blank' rel='noopener noreferrer'
-              >
-              <Yelp src={yelp} />
-            </a>
-          </Link>
-        </div>
-      )
-    } else if (rating === 5) {
-      return (
-        <div>
-          <Stars src={five} alt='five yelp stars' />
-          <Link>Read more on 
-            <a 
-              href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
-              target='_blank' rel='noopener noreferrer'
-              >
-              <Yelp src={yelp} />
-            </a>
-          </Link>
-        </div>
-      )
-    } else if (rating.length > 0) {
-      return (
-        <Link>Read more on 
-          <a 
-            href='https://www.yelp.com/biz/kg-auto-repair-lawrence'
-            target='_blank' rel='noopener noreferrer'
-            >
-            <Yelp src={yelp} />
-          </a>
-        </Link>
-      )
-    }
-  }
-
   render() {
     const { reviews } = this.state;
     const { data } = this.props;
@@ -72,10 +28,22 @@ export default class Reviews extends Component {
       <Grid>
           {reviews.map(review => (
               <GridItem key={review.id}>
-                  <Image src={review.user.image_url} />
-                  <Review><Quote src={quote} />{review.text}</Review>
-                  <Name>{review.user.name}</Name>
-                  {this.stars(review.rating)}
+                <Image src={review.user.image_url} />
+                <Review><Quote src={quote} />{review.text}</Review>
+                <Name>{review.user.name}</Name>
+                {review.rating &&
+                <>
+                  <Yelp rating={review.rating} style={100} />
+                  <Link>Read more on 
+                    <a 
+                      href={data.site.siteMetadata.yelp}
+                      target='_blank' rel='noopener noreferrer'
+                      >
+                      <Logo src={yelp} />
+                    </a>
+                  </Link>
+                </>
+                }
               </GridItem>
           ))}
       </Grid>
@@ -124,6 +92,7 @@ const Name = styled.div`
   font-size: 1.5rem;
   line-height: 1.5;
   margin-top: 1.5rem;
+  margin-bottom: 1rem;
   color: #081C38;
 `;
 
@@ -137,10 +106,6 @@ const Quote = styled.img`
   padding-right: 0.2rem;
 `;
 
-const Stars = styled.img`
-  margin-top: 1rem;
-`;
-
 const Link = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -149,6 +114,6 @@ const Link = styled.div`
   color: lightgray;
 `;
 
-const Yelp = styled.img`
+const Logo = styled.img`
   width: 6rem;
 `;

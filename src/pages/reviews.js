@@ -8,7 +8,7 @@ import Reviews from '../reviews/components/reviews';
 export default ({ data }) => (
   <Layout>
     <Seo
-      title={`Review ${data.site.siteMetadata.title}`}
+      title={`Reviews ${data.site.siteMetadata.title}`}
       description={data.markdownRemark.frontmatter.title} />
       <HeroImage 
         image={data.banner.childImageSharp.fluid}
@@ -23,6 +23,7 @@ export const dataQuery = graphql`
     site {
       siteMetadata {
         title
+        yelp
       }
     }
     yelp {
