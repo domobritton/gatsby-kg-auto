@@ -10,12 +10,12 @@ export default ({image, title, description}) => (
     </Section>
     <LogoSection>
       <LogoWrapper>
-        <Logo src='./ford.png' alt='Ford' />
-        <Logo src='./chevrolet.svg' alt='Chevrolet'/>
-        <Bmw src='./BMW.svg' alt='BMW' />
-        <Logo src='./lexus.png' alt='Lexus' />
-        <Logo src='./toyota.png' alt='Toyota' />
-        <Logo src='./infinity.png' alt='Infinity' />
+        <Logo src='./ford.png' alt='Ford' style={{width: 60}}/>
+        <Logo src='./chevrolet.svg' alt='Chevrolet' style={{width: 60}} />
+        <Bmw src='./BMW.svg' alt='BMW' style={{width: 50}} />
+        <Logo src='./lexus.png' alt='Lexus' style={{width: 60}} />
+        <Logo src='./toyota.png' alt='Toyota' style={{width: 60}} />
+        <Logo src='./infinity.png' alt='Infinity' style={{width: 60}} />
       </LogoWrapper>
     </LogoSection>
   </>
@@ -55,9 +55,9 @@ const LogoWrapper = styled.div`
 `;
 
 const Logo = styled.img`
-  width: 60px;
+  // width: 60px;
 `;
 
 const Bmw = styled.img`
-  width: 50px;
+  // width: 50px;
 `;

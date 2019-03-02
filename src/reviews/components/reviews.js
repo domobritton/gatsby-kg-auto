@@ -33,7 +33,7 @@ export default class Reviews extends Component {
                 <Name>{review.user.name}</Name>
                 {review.rating &&
                 <>
-                  <Yelp rating={review.rating} style={100} />
+                  <Yelp rating={review.rating} styles={100} />
                   <Link>Read more on 
                     <a 
                       href={data.site.siteMetadata.yelp}

@@ -18,7 +18,7 @@ export const Rating = ({ rating }) => (
 
     render={data => (
         <Component>
-          <Yelp rating={rating} style={140}/>
+          <Yelp rating={rating} styles={140}/>
             <Link>AS SEEN ON 
                 <a 
                 href={data.site.siteMetadata.yelp}

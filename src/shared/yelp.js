@@ -32,14 +32,16 @@ export default class Yelp extends Component {
             return four_half;
             case 5:
             return five;
+            default:
+            return five;
         }
     }
   render() {
       const image = this.yelp();
-      const { style } = this.props;
+      const { styles } = this.props;
     return (
       <div>
-        <img src={image} style={{width: style}} alt='yelp rating' />
+        <img src={image} style={{width: styles}} alt='yelp rating' />
       </div>
     )
   }
