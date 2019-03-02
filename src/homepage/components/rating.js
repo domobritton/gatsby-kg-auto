@@ -38,7 +38,9 @@ const Component = styled.div`
     left: 0;
 
     @media (max-width: 1003px) {
-        visibility: hidden;
+        position: static;
+        margin-bottom: 2rem;
+        margin-left: 0;
     }
 `;
 
