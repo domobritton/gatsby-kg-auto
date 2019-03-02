@@ -41,7 +41,14 @@ export default () => (
             <PageLink to="/visit">VISIT US</PageLink>
             <PageLink to="/reviews">REVIEWS</PageLink>
             {/* <a href={data.site.siteMetadata.mailChimpUrl} className="near-white f5 tracked pv1 db">JOIN OUR MAILING LIST</a> */}
-            <Address>264 South Broadway<br />Lawrence, MA 01843</Address>
+            <Address>
+              <p>
+                GET DIRECTIONS: 
+              </p>
+              <a href='https://goo.gl/maps/DuriziJoDUE2' target='_blank' rel='noopener noreferrer'>
+                264 South Broadway<br />Lawrence, MA 01843
+              </a> 
+            </Address>
             <Grid>
               <GridItem>
                 <div>WORK HOURS</div>
@@ -117,6 +124,11 @@ const Social = styled.div`
     display: flex;
     a {
       color: #f4f4f4;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #0053ba;
+      }
     }
 `;
 
@@ -142,6 +154,11 @@ const PageLink = styled(Link)`
     padding: .25rem 0;
     color: #f4f4f4;
     letter-spacing: 0.1rem;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #0053ba;
+    }
 `;
 
 const FooterBtm = styled.div`
@@ -157,6 +174,27 @@ const Address = styled.div`
     color: lightgray;
     letter-spacing: 0.1rem;
     line-height: 1.5;
+    margin-top: 1rem;
+
+    p {
+      float: left;
+      margin-right: 1rem;
+
+      @media (max-width: 600px) {
+        float: none;
+        margin-right: 0;
+        text-align: center;
+      }
+    }
+
+    a {
+      color: #f4f4f4;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: #0053ba;
+      }
+    }
 `;
 
 const Grid = styled.div`

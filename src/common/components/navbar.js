@@ -136,6 +136,11 @@ const DeskLink = styled(Link)`
   font-size: 1rem;
   text-decoration: none;
   color: #555;
+  transition: color 0.3s ease-in-out;
+
+  &:hover {
+    color: #0053ba;
+  }
 `;
 
 const Hamburger = styled.div`
